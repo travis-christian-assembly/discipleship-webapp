@@ -3,5 +3,5 @@ import "./NotFound.css";
 
 export default () =>
   <div className="NotFound">
-    <h3>Sorry, page not found!</h3>
+    <h3>您所请求的页面无法访问或不存在！</h3>
   </div>;

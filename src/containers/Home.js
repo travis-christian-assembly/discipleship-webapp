@@ -42,7 +42,7 @@ export default class Home extends Component {
               to={`/courses/${course.CourseId}`}
             >
               <ListGroupItem header={course.Description.trim().split("\n")[0]}>
-                {"Created: " + new Date(course.LastTouchedAt).toLocaleString()}
+                {"最后更新于：" + new Date(course.LastTouchedAt).toLocaleString()}
               </ListGroupItem>
             </LinkContainer>
           : <LinkContainer
@@ -51,13 +51,12 @@ export default class Home extends Component {
             >
               <ListGroupItem>
                 <h4>
-                  <b>{"\uFF0B"}</b> Create a new course
+                  <b>{"\uFF0B"}</b> 创建新课程
                 </h4>
               </ListGroupItem>
             </LinkContainer>
     );
   }
-
 
   renderLander() {
     return (
@@ -71,7 +70,7 @@ export default class Home extends Component {
   renderCourses() {
     return (
       <div className="courses">
-        <PageHeader>Your Courses</PageHeader>
+        <PageHeader>您的课程</PageHeader>
         <ListGroup>
           {!this.state.isLoading && this.renderCoursesList(this.state.courses)}
         </ListGroup>

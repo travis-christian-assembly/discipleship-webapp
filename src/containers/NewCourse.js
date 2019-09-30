@@ -1,9 +1,8 @@
 import { API } from "aws-amplify";
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl} from "react-bootstrap";
 import uuid from "uuid";
 import LoaderButton from "../components/LoaderButton";
-import config from "../config";
 import "./NewCourse.css";
 
 export default class NewCourse extends Component {
@@ -72,8 +71,8 @@ export default class NewCourse extends Component {
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            text="Create"
-            loadingText="Creating…"
+            text="创建"
+            loadingText="创建中.."
           />
         </form>
       </div>

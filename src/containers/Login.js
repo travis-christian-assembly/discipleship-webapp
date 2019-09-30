@@ -33,7 +33,6 @@ export default class Login extends Component {
     try {
       await Auth.signIn(this.state.email, this.state.password);
       this.props.userHasAuthenticated(true);
-      this.props.history.push("/");
     } catch (e) {
       alert(e.message);
       this.setState({ isLoading: false });
@@ -45,7 +44,7 @@ export default class Login extends Component {
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel>邮箱</ControlLabel>
             <FormControl
               autoFocus
               type="email"
@@ -54,7 +53,7 @@ export default class Login extends Component {
             />
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel>密码</ControlLabel>
             <FormControl
               value={this.state.password}
               onChange={this.handleChange}
@@ -67,8 +66,8 @@ export default class Login extends Component {
             disabled={!this.validateForm()}
             type="submit"
             isLoading={this.state.isLoading}
-            text="Login"
-            loadingText="Logging in…"
+            text="登录"
+            loadingText="登录中.."
           />
         </form>
       </div>

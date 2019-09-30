@@ -1,8 +1,7 @@
 import { API } from "aws-amplify";
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl} from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-import config from "../config";
 import "./Course.css";
 
 export default class Course extends Component {
@@ -65,10 +64,10 @@ export default class Course extends Component {
       });
       this.props.history.push("/");
     } catch (e) {
-      if (409 == e.response.status) {
-        alert("Someone else has updated this course already, please refresh and retry again.");
+      if (409 === e.response.status) {
+        alert("本课程已被更新，请刷新并重试。");
       } else {
-        alert("Sorry, we have encountered some errors, please refresh and try again.");
+        alert("页面出错，请刷新页面然后重试。");
       }
 
       this.setState({ isLoading: false });
@@ -83,7 +82,7 @@ export default class Course extends Component {
     event.preventDefault();
 
     const confirmed = window.confirm(
-      "Are you sure you want to delete this course?"
+      "您确定要删除本课程吗？"
     );
 
     if (!confirmed) {
@@ -120,8 +119,8 @@ export default class Course extends Component {
               disabled={!this.validateForm()}
               type="submit"
               isLoading={this.state.isLoading}
-              text="Save"
-              loadingText="Saving…"
+              text="保存"
+              loadingText="保存中.."
             />
             <LoaderButton
               block
@@ -129,8 +128,8 @@ export default class Course extends Component {
               bsSize="large"
               isLoading={this.state.isDeleting}
               onClick={this.handleDelete}
-              text="Delete"
-              loadingText="Deleting…"
+              text="删除"
+              loadingText="删除中.."
             />
           </form>}
       </div>
